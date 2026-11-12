@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="为下一次难开口的谈话，先练一遍。">
+  <title>关键对话 Lab · Ciki</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="lab.js" defer></script>
+</head>
+<body>
+  <header class="top"><a class="brand" href="./">关键对话 Lab <small>Ciki</small></a><span id="mode" class="mode">离线演练</span></header>
+  <main>
+    <nav aria-label="练习进度"><ol class="steps"><li aria-current="step">准备场景</li><li>模拟对话</li><li>成长复盘</li></ol></nav>
+    <p id="notice" role="status" hidden></p>
+    <section id="prepare">
+      <h1>那句难开口的话，<br>先在这里说一遍。</h1>
+      <p class="intro">挑一个场景，带着一个具体目标开始。这里的练习对象和示例均为虚构。</p>
+      <p id="previous" class="previous" hidden></p>
+      <form id="prepare-form">
+        <fieldset><legend>你想练哪一场对话？</legend><div id="scenarios" class="scenarios"></div></fieldset>
+        <label for="goal">这次你最想练什么？</label>
+        <textarea id="goal" rows="2" maxlength="300" required placeholder="比如：先问清楚发生了什么，再一起约定下次怎么做。"></textarea>
+        <button type="submit" class="primary">开始练习</button>
+      </form>
+    </section>
+    <section id="practice" hidden>
+      <h1 id="scene-title" tabindex="-1"></h1>
+      <p id="practice-goal" class="intro"></p>
+      <div id="messages" class="messages" role="log" aria-label="对话记录"></div>
+      <form id="reply-form">
+        <label for="reply">轮到你了</label>
+        <textarea id="reply" maxlength="1500" rows="3" required placeholder="写下你在当下会怎么说。"></textarea>
+        <div class="actions"><button class="primary" type="submit" id="send">发送</button><button type="button" id="finish" disabled>进入复盘</button><button type="button" id="cancel">退出本次练习</button></div>
+      </form>
+    </section>
+    <section id="review" hidden>
+      <h1 id="review-title" tabindex="-1">成长复盘</h1>
+      <p id="review-goal" class="intro"></p>
+      <article class="card"><h2>回看一句原话</h2><p id="evidence"></p><p id="feedback"></p></article>
+      <form id="action-form" class="card">
+        <label for="next-action">下次我想试一个什么动作？</label>
+        <textarea id="next-action" rows="2" maxlength="300" required></textarea>
+        <button type="submit" class="primary">保存并回到准备</button>
+        <button type="button" id="skip">回到准备</button>
+      </form>
+    </section>
+    <noscript>请开启 JavaScript 来使用练习工作台。</noscript>
+  </main>
+  <footer>练习动作保存在当前浏览器。<button id="clear" type="button" hidden>清除已保存的动作</button></footer>
+</body>
+</html>
